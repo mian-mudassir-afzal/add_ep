@@ -1,0 +1,26 @@
++-----------+---------------------------+---------+------------------------------------------------------+
+| Status    | Meaning                   | FE / BE | Notes                                                |
++-----------+---------------------------+---------+------------------------------------------------------+
+
+| 200       | OK                        | Both    | Successful response, request + server all good.      |
+| 201       | Created                   | BE      | Resource successfully created (e.g., POST success).  |
+| 204       | No Content                | BE      | Success, but no body returned (common for DELETE).   |
+
+| 301/302   | Redirect                  | BE      | Server decides redirect, but FE must handle.         |
+
+| 400       | Bad Request               | BE      | Request invalid (missing fields, malformed JSON).    |
+| 401       | Unauthorized              | BE      | Auth required/failed (invalid or expired token).     |
+| 403       | Forbidden                 | BE      | Authenticated but not allowed (permissions issue).   |
+| 404       | Not Found                 | BE      | Endpoint/resource doesn’t exist.                     |
+| 405       | Method Not Allowed        | BE      | Wrong HTTP method used (e.g., GET instead of POST).  |
+| 408       | Request Timeout           | Both    | Could be FE network delay or BE slow response.       |
+| 409       | Conflict                  | BE      | Resource state conflict (duplicate, version issue).  |
+| 415       | Unsupported Media Type    | BE      | Wrong Content-Type (e.g., headers issue).            |
+| 422       | Unprocessable Entity      | BE      | Validation failed. Request reached server but invalid|
+| 429       | Too Many Requests         | BE      | Rate limit exceeded (server throttling).             |
+
+| 500       | Internal Server Error     | BE      | Generic server crash/unexpected error.               |
+| 502       | Bad Gateway               | BE      | Server-to-server communication failed.               |
+| 503       | Service Unavailable       | BE      | Server down, overloaded, or maintenance.             |
+| 504       | Gateway Timeout           | BE      | Server didn’t respond in time.                       |
++-----------+---------------------------+---------+------------------------------------------------------+
